@@ -1,8 +1,9 @@
-import { defineConfig } from 'vite'
-import tsConfigPaths from 'vite-tsconfig-paths'
-import { cloudflare } from '@cloudflare/vite-plugin'
-import { tanstackStart } from '@tanstack/solid-start/plugin/vite'
-import viteSolid from 'vite-plugin-solid'
+import { defineConfig } from "vite";
+import tsConfigPaths from "vite-tsconfig-paths";
+import { cloudflare } from "@cloudflare/vite-plugin";
+import { tanstackStart } from "@tanstack/solid-start/plugin/vite";
+import viteSolid from "vite-plugin-solid";
+import tailwind from "@tailwindcss/vite";
 
 export default defineConfig({
   server: {
@@ -10,10 +11,11 @@ export default defineConfig({
   },
   plugins: [
     tsConfigPaths({
-      projects: ['./tsconfig.json'],
+      projects: ["./tsconfig.json"],
     }),
-    cloudflare({ viteEnvironment: { name: 'ssr' } }),
+    cloudflare({ viteEnvironment: { name: "ssr" } }),
     tanstackStart(),
+    tailwind(),
     viteSolid({ ssr: true }),
   ],
-})
+});

@@ -1,4 +1,4 @@
-import { Link } from '@tanstack/solid-router'
+import { Link } from "@tanstack/solid-router";
 
 export function NotFound({ children }: { children?: any }) {
   return (
@@ -21,5 +21,5 @@ export function NotFound({ children }: { children?: any }) {
         </Link>
       </p>
     </div>
-  )
+  );
 }
