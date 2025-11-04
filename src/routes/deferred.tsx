@@ -10,6 +10,8 @@ const getGreeting = createServerFn({ method: "GET" })
 
 export const Route = createFileRoute("/deferred")({
   loader: async () => {
+    console.log(process.env);
+
     return {
       greeting: getGreeting({ data: "ZeAmanuel" }),
     };
