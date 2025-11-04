@@ -1,15 +1,17 @@
 import { createFileRoute } from "@tanstack/solid-router";
 import { createServerFn } from "@tanstack/solid-start";
 
-export const Route = createFileRoute("/")({
-  loader: () => getData(),
-  component: Home,
-});
-
 const getData = createServerFn().handler(() => {
+  console.log(process.env);
+
   return {
     message: `Running in ${navigator.userAgent}`,
   };
+});
+
+export const Route = createFileRoute("/")({
+  loader: () => getData(),
+  component: Home,
 });
 
 function Home() {
