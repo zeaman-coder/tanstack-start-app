@@ -5,7 +5,7 @@ import { Suspense, createSignal } from "solid-js";
 const personServerFn = createServerFn({ method: "GET" })
   .inputValidator((d: string) => d)
   .handler(({ data: name }) => {
-    console.log(import.meta.env);
+    console.log(process.env);
 
     return { name, randomNumber: Math.floor(Math.random() * 100) };
   });
