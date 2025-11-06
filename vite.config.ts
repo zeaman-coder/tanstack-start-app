@@ -1,9 +1,9 @@
 import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
-import { cloudflare } from "@cloudflare/vite-plugin";
 import { tanstackStart } from "@tanstack/solid-start/plugin/vite";
 import viteSolid from "vite-plugin-solid";
 import tailwind from "@tailwindcss/vite";
+import { nitro } from "nitro/vite";
 
 export default defineConfig({
   server: {
@@ -13,7 +13,11 @@ export default defineConfig({
     tsConfigPaths({
       projects: ["./tsconfig.json"],
     }),
-    cloudflare({ viteEnvironment: { name: "ssr" } }),
+    nitro({
+      config: {
+        preset: "node_server",
+      },
+    }),
     tanstackStart(),
     tailwind(),
     viteSolid({ ssr: true }),

@@ -7,3 +7,6 @@ dist
 .tanstack/
 drizzle/
 db/
+dist/
+.output/
+.nitro/
